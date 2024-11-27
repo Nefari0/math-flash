@@ -1,28 +1,29 @@
 import 'katex/dist/katex.min.css';
 import { AppContainer } from "./App.styles";
-import { InlineMath } from "react-katex";
 import { useState, useEffect } from "react";
+import NumberPad from './Components/NumberPad/num.component';
+import Card from './Components/Card/card.component';
 
 export default function App() {
   const [state, setState] = useState({
     value: null,
-    lengthOfFirstNumber: 2,
-    lengthOfSecondNumber: 1,
+    lengthOfFirstNumber: 3,
+    lengthOfSecondNumber: 3,
     firstNumber: 0,
     secondNumber: 0,
     firstNumber: 0,
     secondNumber: 0,
-    answer: 0,
-    mode: "/", // +,-,\\times,/
+    answer: 0, // Actual answer
+    calculation:'', // User calculation
+    mode: "+", // "+", "-", "\\times", "/"
   });
 
   const {
     lengthOfFirstNumber,
     lengthOfSecondNumber,
     mode,
-    firstNumber,
-    secondNumber,
     answer,
+    calculation
   } = state;
 
   useEffect(() => {
@@ -50,21 +51,32 @@ export default function App() {
       ...state,
       firstNumber: first,
       secondNumber: second,
-      answer:result
+      answer:result,
+      calculation:''
     });
   }
 
-  var equation = `${firstNumber}`+`${mode}`+`${secondNumber}`
-
   return (
     <AppContainer>
-      <button onClick={() => {mathGenerator();}}>
-        Make new integer
-      </button>
-      <InlineMath
-        math={`${equation}`}
+      <Card 
+        state={state}
       />
-      <h1>{answer}</h1>
+      {Number(calculation) === answer ? 
+      <>
+        <h1>correct!</h1>
+        <button
+          onClick={() => {mathGenerator()}}
+        >next</button>
+      </>
+    :
+      <NumberPad
+        styles={{position:'relative'}}
+        state={state}
+        setState={setState}
+        inputField={'calculation'}
+       />
+    }
     </AppContainer>
   );
+
 };
