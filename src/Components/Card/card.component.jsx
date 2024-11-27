@@ -11,7 +11,6 @@ const Card = ({state}) => {
     return (
         <CardOutline>
             <BlockMath math={equation}/>
-            {/* <BlockMath math={`=`+calculation}/> */}
             <p>= {calculation}</p>
         </CardOutline>
     )
