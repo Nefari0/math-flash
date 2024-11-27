@@ -1,17 +1,19 @@
-import "./App.css";
+import 'katex/dist/katex.min.css';
+import { AppContainer } from "./App.styles";
+import { InlineMath } from "react-katex";
 import { useState, useEffect } from "react";
 
 export default function App() {
   const [state, setState] = useState({
     value: null,
-    lengthOfFirstNumber: 3,
-    lengthOfSecondNumber: 2,
+    lengthOfFirstNumber: 2,
+    lengthOfSecondNumber: 1,
     firstNumber: 0,
     secondNumber: 0,
     firstNumber: 0,
     secondNumber: 0,
     answer: 0,
-    mode: "subtract", // add,subtract,multiply,devide
+    mode: "/", // +,-,\\times,/
   });
 
   const {
@@ -35,13 +37,13 @@ export default function App() {
     var result = 0
 
     switch(mode) {
-      case 'add':result = first+second
+      case '+':result = first+second
       break;
-      case "subtract": result = first - second
+      case "-": result = first - second
       break;
-      case "multiply": result = first * second
+      case "\\times": result = first * second
       break;
-      case "divide": result = first / second
+      case "/": result = first / second
     }
 
     setState({
@@ -52,23 +54,17 @@ export default function App() {
     });
   }
 
+  var equation = `${firstNumber}`+`${mode}`+`${secondNumber}`
+
   return (
-    <div className="App">
-      <button
-        onClick={() => {
-          mathGenerator();
-        }}
-      >
+    <AppContainer>
+      <button onClick={() => {mathGenerator();}}>
         Make new integer
       </button>
-      <h1>
-        {firstNumber}
-      </h1>
-      <h1>
-        {secondNumber}
-      </h1>
-
+      <InlineMath
+        math={`${equation}`}
+      />
       <h1>{answer}</h1>
-    </div>
+    </AppContainer>
   );
 };
