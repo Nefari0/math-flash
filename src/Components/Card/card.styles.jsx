@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const CardOutline = styled.div`
-    position:relative;
+    position:absolute;
+    top:20px;
     width:70vw;
     max-width:400px;
     min-width:250px;

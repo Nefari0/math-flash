@@ -66,8 +66,8 @@ export default function App() {
         mathGenerator={mathGenerator}
         getRandomArbitrary={getRandomArbitrary}
       />
+      
       {Number(calculation) != answer && cardOptionsOpen != true &&
-
       <NumberPad
         styles={{position:'relative'}}
         state={state}

@@ -10,7 +10,7 @@ const Card = ({state, setState, getRandomArbitrary, mathGenerator}) => {
     var equation = `${firstNumber}`+`${mode}`+`${secondNumber}`
 
     return (
-        <CardOutline cardOptionsOpen={cardOptionsOpen}>
+        <CardOutline>
             <BlockMath math={equation}/>
             <p>= {calculation}</p>
             {cardOptionsOpen && <CardOptions state={state} setState={setState} getRandomArbitrary={getRandomArbitrary} mathGenerator={mathGenerator} />}
