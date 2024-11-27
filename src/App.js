@@ -6,7 +6,7 @@ import Card from './Components/Card/card.component';
 export default function App() {
   const [state, setState] = useState({
     value: null,
-    lengthOfFirstNumber: 3,
+    lengthOfFirstNumber: 1,
     lengthOfSecondNumber: 1,
     firstNumber: 0,
     secondNumber: 0,
@@ -23,7 +23,8 @@ export default function App() {
     lengthOfSecondNumber,
     mode,
     answer,
-    calculation
+    calculation,
+    cardOptionsOpen
   } = state;
 
   useEffect(() => {
@@ -52,7 +53,8 @@ export default function App() {
       firstNumber: first,
       secondNumber: second,
       answer:result,
-      calculation:''
+      calculation:'',
+      cardOptionsOpen:false
     });
   }
 
@@ -60,15 +62,12 @@ export default function App() {
     <AppContainer>
       <Card 
         state={state}
+        setState={setState}
+        mathGenerator={mathGenerator}
+        getRandomArbitrary={getRandomArbitrary}
       />
-      {Number(calculation) === answer ? 
-      <>
-        <h1>correct!</h1>
-        <button
-          onClick={() => {mathGenerator()}}
-        >next</button>
-      </>
-    :
+      {Number(calculation) != answer && cardOptionsOpen != true &&
+
       <NumberPad
         styles={{position:'relative'}}
         state={state}

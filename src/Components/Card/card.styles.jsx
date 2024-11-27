@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardOutline = styled.div`
+    position:relative;
     width:70vw;
     max-width:400px;
     min-width:250px;
@@ -19,9 +20,10 @@ export const OptionsContainer = styled.section`
     width:70vw;
     max-width:400px;
     min-width:250px;
-    height:50vh;
-    top:35px;
+    height:30vh;
+    bottom:0px;
     background-color:#000;
+    z-index:1;
     
     display: flex;   
     flex-direction:row;
@@ -31,19 +33,10 @@ export const OptionsContainer = styled.section`
         font-size:10px;
         // margin:auto;
     }
-    
-    // small,
-    div {
-        // width:33%;
-        // padding:0px;
-        // background-color:blue;
-        //     background: #fffef0;
-    }
 
-    // small {
-        //  background-color:blue;
-        // width:33%;
-    // }
+    span {
+        font-size:20px;
+    }
 `
 
 export const OptionColumn = styled.div`
