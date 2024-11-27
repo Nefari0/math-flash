@@ -47,7 +47,8 @@ export const numdata = [
     },
 
     {
-        val:'.',
+        val:'',
+        svg:BackSpace(),
         operator:false,
     },
 
@@ -56,9 +57,4 @@ export const numdata = [
         operator:false
     },
 
-    {
-        val:'',
-        svg:BackSpace(),
-        operator:false,
-    },
 ]

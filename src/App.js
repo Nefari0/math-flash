@@ -1,4 +1,3 @@
-import 'katex/dist/katex.min.css';
 import { AppContainer } from "./App.styles";
 import { useState, useEffect } from "react";
 import NumberPad from './Components/NumberPad/num.component';
@@ -8,7 +7,7 @@ export default function App() {
   const [state, setState] = useState({
     value: null,
     lengthOfFirstNumber: 3,
-    lengthOfSecondNumber: 3,
+    lengthOfSecondNumber: 1,
     firstNumber: 0,
     secondNumber: 0,
     firstNumber: 0,
@@ -16,6 +15,7 @@ export default function App() {
     answer: 0, // Actual answer
     calculation:'', // User calculation
     mode: "+", // "+", "-", "\\times", "/"
+    cardOptionsOpen:false,
   });
 
   const {
@@ -74,7 +74,7 @@ export default function App() {
         state={state}
         setState={setState}
         inputField={'calculation'}
-       />
+      />
     }
     </AppContainer>
   );

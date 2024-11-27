@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { NumPad } from "./nums.styles";
 import { numdata } from "./nums.data";
-// import Button from "../Button";
+import { Wrench } from "../SVG/svg";
 import Button from "../Buttons/basebutton.component";
 
 const NumberPad = ({styles,state,setState,inputField}) => {
 
     const [input,setInput] = useState('calculation') // -- Selects text input body to be edited
+    const { cardOptionsOpen } = state
 
     useEffect(() => {
         if (inputField) {setInput(inputField)}
@@ -46,6 +47,10 @@ const NumberPad = ({styles,state,setState,inputField}) => {
             style={styles}
         >
             {mappedKeys}
+            <Button
+                onClick={() => setState({...state, cardOptionsOpen:!cardOptionsOpen})}
+                text={Wrench()}
+             />
         </NumPad>
     )
 }
