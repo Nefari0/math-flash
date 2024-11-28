@@ -5,12 +5,14 @@ import CardOptions from './options.component';
 
 const Card = ({state, setState, getRandomArbitrary, mathGenerator}) => { 
 
-    const { firstNumber,mode,secondNumber,calculation,cardOptionsOpen,answer } = state
+    const { firstNumber,mode,secondNumber,calculation,cardOptionsOpen,answer,flipcard } = state
 
     var equation = `${firstNumber}`+`${mode}`+`${secondNumber}`
 
     return (
-        <CardOutline>
+        <CardOutline 
+            flipcard={`${flipcard}`}
+        >
             <BlockMath math={equation}/>
             <p>= {calculation}</p>
             {cardOptionsOpen && <CardOptions state={state} setState={setState} getRandomArbitrary={getRandomArbitrary} mathGenerator={mathGenerator} />}

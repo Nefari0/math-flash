@@ -16,6 +16,7 @@ export default function App() {
     calculation:'', // User calculation
     mode: "+", // "+", "-", "\\times", "/"
     cardOptionsOpen:false,
+    flipcard:false,
   });
 
   const {
@@ -24,7 +25,8 @@ export default function App() {
     mode,
     answer,
     calculation,
-    cardOptionsOpen
+    cardOptionsOpen,
+    flipcard
   } = state;
 
   useEffect(() => {
@@ -54,7 +56,8 @@ export default function App() {
       secondNumber: second,
       answer:result,
       calculation:'',
-      cardOptionsOpen:false
+      cardOptionsOpen:false,
+      flipcard:!flipcard,
     });
   }
 

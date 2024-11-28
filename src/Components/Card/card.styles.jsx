@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+// const flip = css`
+//     transform: scaleX(-1);
+//     transition: transform .25s, opacity 0.5s;
+// `
+
 export const CardOutline = styled.div`
     position:absolute;
     top:20px;
@@ -14,7 +19,9 @@ export const CardOutline = styled.div`
     overflow-wrap: break-word;
     box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
     background: #fffef0;
-`
+
+    ${({flipcard}) => flipcard & console.log(flipcard)}
+    `
 
 export const OptionsContainer = styled.section`
     position:absolute;

@@ -4,7 +4,6 @@ export const NumPad = styled.div`
     bottom:-150px;
     width:150px;
     height:200px;
-    background-color:rgba(0,0,0,.5);
     padding:10px;
     border-radius:5px;
 
