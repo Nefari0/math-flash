@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 // const flip = css`
 //     transform: scaleX(-1);
@@ -19,8 +19,6 @@ export const CardOutline = styled.div`
     overflow-wrap: break-word;
     box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
     background: #fffef0;
-
-    ${({flipcard}) => flipcard & console.log(flipcard)}
     `
 
 export const OptionsContainer = styled.section`
