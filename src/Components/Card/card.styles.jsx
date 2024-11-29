@@ -1,9 +1,4 @@
-import styled, {css} from "styled-components";
-
-// const flip = css`
-//     transform: scaleX(-1);
-//     transition: transform .25s, opacity 0.5s;
-// `
+import styled from "styled-components";
 
 export const CardOutline = styled.div`
     position:absolute;
@@ -37,7 +32,6 @@ export const OptionsContainer = styled.section`
 
     small {
         font-size:10px;
-        // margin:auto;
     }
 
     span {

@@ -5,7 +5,7 @@ import Button from '../Buttons/basebutton.component';
 
 const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }) => {
 
-    const { mode, lengthOfFirstNumber, lengthOfSecondNumber, cardOptionsOpen, } = state
+    const { mode, lengthOfFirstNumber, lengthOfSecondNumber } = state
 
     const firstArray = Array.from(Array(lengthOfFirstNumber))
     const secondArray = Array.from(Array(lengthOfSecondNumber))
@@ -48,7 +48,7 @@ const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }) => {
                 <div>
                     <InlineMath math={mode} />
                 </div>
-                                {operationArray.map((el,i) => {
+                    {operationArray.map((el,i) => {
                     return (
                         <button key={i} onClick={() => {inputHandler("mode",el)}}><InlineMath math={el} /></button>
                     )
