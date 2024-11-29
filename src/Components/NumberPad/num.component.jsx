@@ -7,20 +7,20 @@ import Button from "../Buttons/basebutton.component";
 const NumberPad = ({styles,state,setState,inputField}) => {
 
     const [input,setInput] = useState('calculation') // -- Selects text input body to be edited
-    const { cardOptionsOpen } = state
+    const { cardOptionsOpen,mode } = state
 
     useEffect(() => {
         if (inputField) {setInput(inputField)}
     },[inputField])
 
-    const newCharacter = (val) => {
+    function newCharacter(val) {
         const stringval = state[input].toString()
         const mathArr = stringval.split('')
         const previous = mathArr.splice(0,mathArr.length-1,1).join('')
         return (val.split('').length === 0 ? previous : state[input]+val)
     }
 
-    const setItems = (e,val) => {
+    function setItems(e,val) {
         e.preventDefault()
         setState({
             ...state,
@@ -28,8 +28,20 @@ const NumberPad = ({styles,state,setState,inputField}) => {
         })
     }
 
-    const mappedKeys = numdata.map(el => {
+    function negation() {
+        var stringValArray = state[input].toString().split('')
+        if (stringValArray[0] === '-') {
+            stringValArray.splice(0,1)  
+        } else {
+            stringValArray.splice(0,0,'-')
+        }
+        setState({
+            ...state,
+            [input]:stringValArray.join('')
+        })
+    }
 
+    const mappedKeys = numdata.map(el => {
         const display = (el.svg ? (el.svg) : (el.val))
 
         return (
@@ -51,6 +63,7 @@ const NumberPad = ({styles,state,setState,inputField}) => {
                 onClick={() => setState({...state, cardOptionsOpen:!cardOptionsOpen})}
                 text={Wrench()}
              />
+            {mode === '-' && <Button text={'-'} onClick={() => negation()}/>}
         </NumPad>
     )
 }
