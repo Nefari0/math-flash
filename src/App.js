@@ -14,9 +14,10 @@ export default function App() {
     secondNumber: 0,
     answer: 0, // Actual answer
     calculation:'', // User calculation
-    mode: "\\div", // "+", "-", "\\times", "\\div"
+    mode: "+", // "+", "-", "\\times", "\\div"
     cardOptionsOpen:false,
     flipcard:false,
+    showAnswer:false
   });
 
   const {
@@ -61,6 +62,7 @@ export default function App() {
       calculation:'',
       cardOptionsOpen:false,
       flipcard:!flipcard,
+      showAnswer:false,
     });
   }
 

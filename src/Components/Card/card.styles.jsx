@@ -46,3 +46,10 @@ export const OptionColumn = styled.div`
     display: flex;
     flex-direction:column;
 `
+
+export const NextButton = styled.small`
+    position:absolute;
+    right:40px;
+    bottom:10px;
+    zIndex:0;
+`
