@@ -14,7 +14,7 @@ export default function App() {
     secondNumber: 0,
     answer: 0, // Actual answer
     calculation:'', // User calculation
-    mode: "+", // "+", "-", "\\times", "/"
+    mode: "\\div", // "+", "-", "\\times", "\\div"
     cardOptionsOpen:false,
     flipcard:false,
   });
@@ -47,7 +47,10 @@ export default function App() {
       break;
       case "\\times": result = first * second
       break;
-      case "/": result = first / second
+      case "\\div": {
+        result = first
+        first = first * second
+      }
     }
 
     setState({

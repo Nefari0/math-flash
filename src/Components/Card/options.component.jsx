@@ -10,7 +10,7 @@ const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }) => {
     const firstArray = Array.from(Array(lengthOfFirstNumber))
     const secondArray = Array.from(Array(lengthOfSecondNumber))
     const numberArray = [1,2,3]
-    const operationArray = [ "+", "-", "\\times", "/"]
+    const operationArray = [ "+", "-", "\\times", "\\div"]
 
     function inputHandler(prop,val,resetVal) {
         setState({
