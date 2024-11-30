@@ -1,6 +1,6 @@
 # Math Flash
 
-https://cards.madmodels3d.com/
+https://cardz.madmodels3d.com/
 
 A simple flashcard game for memorizing and practicing basic arithmetic operations.
 
