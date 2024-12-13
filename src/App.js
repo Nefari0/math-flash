@@ -1,7 +1,7 @@
-import { AppContainer } from "./App.styles";
+import { AppContainer,Three } from "./App.styles";
 import { useState, useEffect } from "react";
 import NumberPad from './Components/NumberPad/num.component';
-import Card from './Components/Card/card.component';
+import { Spinner } from "./Components/Card/cardplatform.component";
 
 export default function App() {
   const [state, setState] = useState({
@@ -27,7 +27,7 @@ export default function App() {
     answer,
     calculation,
     cardOptionsOpen,
-    flipcard
+    showAnswer
   } = state;
 
   useEffect(() => {
@@ -61,21 +61,22 @@ export default function App() {
       answer:result,
       calculation:'',
       cardOptionsOpen:false,
-      flipcard:!flipcard,
       showAnswer:false,
     });
   }
 
   return (
     <AppContainer>
-      <Card 
+      <Spinner
         state={state}
         setState={setState}
         mathGenerator={mathGenerator}
         getRandomArbitrary={getRandomArbitrary}
+        showAnswer={showAnswer}
       />
       
       {Number(calculation) != answer && cardOptionsOpen != true &&
+      
       <NumberPad
         styles={{position:'relative'}}
         state={state}
