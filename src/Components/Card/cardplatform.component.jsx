@@ -11,7 +11,7 @@ export const Spinner = (props) => {
         getRandomArbitrary
     } = props
     const { showAnswer,calculation,answer } = state
-    console.log(showAnswer)
+
     return(
         <Spinplatform
             showAnswer={showAnswer}

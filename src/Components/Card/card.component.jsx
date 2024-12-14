@@ -18,9 +18,7 @@ const Card = ({state, setState, getRandomArbitrary, mathGenerator}) => {
     var equation = `${firstNumber}`+`${mode}`+`${secondNumber}`
 
     return (
-        <CardOutline
-            showAnswer={showAnswer}
-        >
+        <CardOutline>
             <BlockMath math={equation}/>
             <p>= {calculation}</p>
             {cardOptionsOpen && 
@@ -28,7 +26,7 @@ const Card = ({state, setState, getRandomArbitrary, mathGenerator}) => {
                     state={state} 
                     setState={setState} 
                     getRandomArbitrary={getRandomArbitrary} 
-                    mathGenerator={mathGenerator} 
+                    mathGenerator={mathGenerator}
                 />}
             {answer != Number(calculation) && showAnswer  === false ? 
                 <NextButton 

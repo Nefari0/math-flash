@@ -4,15 +4,15 @@ const displacement = 2 // Space between card back and front
 const relativeAngle = 90 // Angle between platform and card
 
 export const Spinplatform = styled.div`
-  -webkit-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     width:200px;
     height:200px;
     position:absolute;
     top:20%;
-    transition: all 500ms;
+    transition: all ${({showAnswer,solved}) => solved || showAnswer ? '500ms' : '0ms'};
     transform:
         translateY(${displacement}px)
-        rotateY(${({showAnswer,solved}) => !solved & !showAnswer ? '0' : rotation}deg)
+        rotateY(${({showAnswer,solved}) => !solved && !showAnswer ? '0' : rotation}deg)
         rotateX(${relativeAngle}deg);
     display:flex;
     flex-direction:colomn;
