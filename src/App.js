@@ -75,15 +75,14 @@ export default function App() {
         showAnswer={showAnswer}
       />
       
-      {Number(calculation) != answer && cardOptionsOpen != true &&
+      {Number(calculation) != answer && showAnswer != true && cardOptionsOpen != true &&
       
       <NumberPad
         styles={{position:'relative'}}
         state={state}
         setState={setState}
         inputField={'calculation'}
-      />
-    }
+      />}
     </AppContainer>
   );
 
