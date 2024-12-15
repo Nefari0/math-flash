@@ -12,23 +12,28 @@ const Card = ({state, setState, getRandomArbitrary, mathGenerator}) => {
         calculation,
         cardOptionsOpen,
         answer,
-        flipcard,
         showAnswer
     } = state
 
     var equation = `${firstNumber}`+`${mode}`+`${secondNumber}`
 
     return (
-        <CardOutline 
-            flipcard={`${flipcard}`}
-        >
+        <CardOutline>
             <BlockMath math={equation}/>
             <p>= {calculation}</p>
-            {cardOptionsOpen && <CardOptions state={state} setState={setState} getRandomArbitrary={getRandomArbitrary} mathGenerator={mathGenerator} />}
-            {showAnswer && answer}
-            {answer === Number(calculation) || showAnswer  === true ? <NextButton onClick={() => mathGenerator()}>{`Next >>`}</NextButton> : null}
-            {answer != Number(calculation) && showAnswer  === false ? <NextButton onClick={() => setState({...state, showAnswer:true})}>{`Skip >>`}</NextButton> : null}
-            {answer === Number(calculation) && <strong>CORRECT!</strong>}
+            {cardOptionsOpen && 
+                <CardOptions 
+                    state={state} 
+                    setState={setState} 
+                    getRandomArbitrary={getRandomArbitrary} 
+                    mathGenerator={mathGenerator}
+                />}
+            {answer != Number(calculation) && showAnswer  === false ? 
+                <NextButton 
+                    onClick={() => setState({...state, showAnswer:true})}
+                >
+                    {`Skip >>`}
+                </NextButton> : null}
         </CardOutline>
     )
 }

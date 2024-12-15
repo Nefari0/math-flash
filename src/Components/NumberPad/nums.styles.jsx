@@ -5,7 +5,11 @@ export const NumPad = styled.div`
     width:150px;
     height:200px;
     padding:10px;
-    border-radius:5px;
+    position:absolute;
+
+    @media (max-height:1200px) {
+        bottom:-200px;
+    }
 
     button {
         width:32%;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+const rotation = 180
 
 export const AppContainer = styled.main`
   text-align: center;
