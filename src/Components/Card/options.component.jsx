@@ -1,5 +1,5 @@
 import 'katex/dist/katex.min.css';
-import { OptionsContainer,OptionColumn } from "./card.styles";
+import { OptionsContainer,OptionColumn } from "./card.styles.tsx";
 import { InlineMath } from "react-katex";
 import Button from '../Buttons/basebutton.component';
 

@@ -1,5 +1,6 @@
 import 'katex/dist/katex.min.css';
-import { CardOutline,NextButton } from "./card.styles";
+// import { CardOutline,NextButton } from "./card.styles";
+import { CardOutline,NextButton } from './card.styles.tsx';
 import { BlockMath } from "react-katex";
 import CardOptions from './options.component';
 

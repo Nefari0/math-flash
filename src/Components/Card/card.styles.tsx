@@ -3,7 +3,12 @@ const rotation = 180 // Flip card angle
 const displacement = 2 // Space between card back and front
 const relativeAngle = 90 // Angle between platform and card
 
-export const Spinplatform = styled.div`
+type SpinPlatformProps = {
+  showAnswer: boolean;
+  solved: boolean;
+};
+
+export const Spinplatform = styled.div<SpinPlatformProps>`
     -webkit-transform-style: preserve-3d;
     width:200px;
     height:200px;
@@ -15,7 +20,7 @@ export const Spinplatform = styled.div`
         rotateY(${({showAnswer,solved}) => !solved && !showAnswer ? '0' : rotation}deg)
         rotateX(${relativeAngle}deg);
     display:flex;
-    flex-direction:colomn;
+    // flex-direction:colomn;
     justify-content:center;
     align-items:center;
 `
@@ -28,8 +33,8 @@ export const CardOutline = styled.div`
     height:50vh;
     border-radius:5px;
     font-size:2.1em;
-    display-flex;
-    flex-direction:columm;
+    // display:flex;
+    // flex-direction:columm;
     overflow-wrap: break-word;
     box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
     background: #fffef0;
@@ -79,5 +84,5 @@ export const NextButton = styled.small`
     position:absolute;
     right:40px;
     bottom:10px;
-    zIndex:0;
+    z-index:0;
 `

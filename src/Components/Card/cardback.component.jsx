@@ -1,4 +1,4 @@
-import { CardBack,NextButton } from "./card.styles";
+import { CardBack,NextButton } from "./card.styles.tsx";
 import { BlockMath } from "react-katex";
 
 const Back = ({state,mathGenerator}) => {

@@ -1,4 +1,4 @@
-import { Spinplatform } from "./card.styles";
+import { Spinplatform } from "./card.styles.tsx";
 import Card from "./card.component";
 // import { CardBack } from "./card.styles";
 import Back from "./cardback.component";
