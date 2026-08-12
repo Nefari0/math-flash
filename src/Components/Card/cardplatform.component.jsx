@@ -1,7 +1,7 @@
 import { Spinplatform } from "./card.styles.tsx";
-import Card from "./card.component";
+import Card from "./card.component.tsx";
 // import { CardBack } from "./card.styles";
-import Back from "./cardback.component";
+import Back from "./cardback.component.tsx";
 
 export const Spinner = (props) => {
     const {
