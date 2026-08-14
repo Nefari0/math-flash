@@ -1,27 +1,44 @@
 import { useEffect, useState } from "react";
-import { NumPad } from "./nums.styles";
-import { numdata } from "./nums.data";
-import { Wrench } from "../SVG/svg";
-import Button from "../Buttons/basebutton.component";
+import { NumPad } from "./nums.styles.jsx";
+import { numdata } from "./nums.data.ts";
+import { Wrench } from "../SVG/svg.js";
+import Button from "../Buttons/basebutton.component.tsx";
+import { State } from "../../types.ts";
 
-const NumberPad = ({styles,state,setState,inputField}) => {
+type InputField = {
+  [K in keyof State]: State[K] extends string ? K : never
+}[keyof State];
 
-    const [input,setInput] = useState('calculation') // -- Selects text input body to be edited
+type NumberPadProps = {
+    styles?: React.CSSProperties;
+    inputField?: InputField;
+    setState:React.Dispatch<React.SetStateAction<State>>;
+    state: State;
+};
+
+const NumberPad = ({styles,state,setState,inputField}: NumberPadProps) => {
+
+    const [input,setInput] = useState<InputField>('calculation') // -- Selects text input body to be edited
     const { cardOptionsOpen,mode } = state
 
     useEffect(() => {
         if (inputField) {setInput(inputField)}
     },[inputField])
 
-    function newCharacter(val) {
+    function newCharacter(val: string | number): string {
         const stringval = state[input].toString()
         const mathArr = stringval.split('')
-        const previous = mathArr.splice(0,mathArr.length-1,1).join('')
-        return (val.split('').length === 0 ? previous : state[input]+val)
+        const previous = mathArr.splice(0,mathArr.length-1,'1').join('')
+
+        return (val.toString().length === 0 ? previous : stringval+val)
     }
 
-    function setItems(e,val) {
+    function setItems(
+        e: React.MouseEvent<HTMLButtonElement>,
+        val: string | number
+    ): void {
         e.preventDefault()
+
         setState({
             ...state,
             [input]:newCharacter(val)

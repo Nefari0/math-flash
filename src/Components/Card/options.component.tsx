@@ -1,7 +1,7 @@
 import 'katex/dist/katex.min.css';
 import { OptionsContainer,OptionColumn } from "./card.styles.tsx";
 import { InlineMath } from "react-katex";
-import Button from '../Buttons/basebutton.component';
+import Button from '../Buttons/basebutton.component.tsx';
 
 type CardState = {
   mode: string;
@@ -16,11 +16,6 @@ type CardOptionsProps = {
   setState: React.Dispatch<React.SetStateAction<CardState>>;
   getRandomArbitrary: (length: number) => number;
   mathGenerator: () => void;
-};
-
-type ButtonState = {
-    text: string;
-    // onClick={() => mathGenerator()}
 };
 
 const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }: CardOptionsProps) => {

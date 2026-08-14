@@ -1,3 +1,4 @@
+declare module "*.css";
 declare module "react-katex" {
   import { ComponentType } from "react";
 

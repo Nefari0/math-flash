@@ -1,22 +1,20 @@
-import { AppContainer,Three } from "./App.styles";
+import { AppContainer } from "./App.styles.jsx";
 import { useState, useEffect } from "react";
-import NumberPad from './Components/NumberPad/num.component';
-import { Spinner } from "./Components/Card/cardplatform.component";
+import NumberPad from './Components/NumberPad/num.component.tsx';
+import { Spinner } from "./Components/Card/cardplatform.component.jsx";
+import { State } from './types.ts'
 
-export default function App() {
-  const [state, setState] = useState({
+const App = () => {
+  const [state, setState] = useState<State>({
     value: null,
     lengthOfFirstNumber: 1,
     lengthOfSecondNumber: 1,
-    firstNumber: 0,
-    secondNumber: 0,
     firstNumber: 0,
     secondNumber: 0,
     answer: 0, // Actual answer
     calculation:'', // User calculation
     mode: "+", // "+", "-", "\\times", "\\div"
     cardOptionsOpen:false,
-    flipcard:false,
     showAnswer:false
   });
 
@@ -34,11 +32,13 @@ export default function App() {
     mathGenerator();
   },[]);
 
-  function getRandomArbitrary(length) {return Math.floor(Math.random() * (10 ** length - 1) + 1);}
+  function getRandomArbitrary(
+    length: number,
+  ) {return Math.floor(Math.random() * (10 ** length - 1) + 1);}
 
   function mathGenerator() {
-    var first = getRandomArbitrary(lengthOfFirstNumber);
-    var second = getRandomArbitrary(lengthOfSecondNumber);
+    let first = getRandomArbitrary(lengthOfFirstNumber);
+    let second = getRandomArbitrary(lengthOfSecondNumber);
     var result = 0
 
     switch(mode) {
@@ -75,7 +75,7 @@ export default function App() {
         showAnswer={showAnswer}
       />
       
-      {Number(calculation) != answer && showAnswer != true && cardOptionsOpen != true &&
+      {Number(calculation) !== answer && showAnswer != true && cardOptionsOpen != true &&
       
       <NumberPad
         styles={{position:'relative'}}
@@ -87,3 +87,5 @@ export default function App() {
   );
 
 };
+
+export default App
