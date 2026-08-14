@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NumPad } from "./nums.styles.jsx";
+import { NumPad } from "./nums.styles.tsx";
 import { numdata } from "./nums.data.ts";
 import { Wrench } from "../SVG/svg.js";
 import Button from "../Buttons/basebutton.component.tsx";

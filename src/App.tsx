@@ -1,7 +1,7 @@
 import { AppContainer } from "./App.styles.jsx";
 import { useState, useEffect } from "react";
 import NumberPad from './Components/NumberPad/num.component.tsx';
-import { Spinner } from "./Components/Card/cardplatform.component.jsx";
+import { Spinner } from "./Components/Card/cardplatform.component.tsx";
 import { State } from './types.ts'
 
 const App = () => {
@@ -72,7 +72,6 @@ const App = () => {
         setState={setState}
         mathGenerator={mathGenerator}
         getRandomArbitrary={getRandomArbitrary}
-        showAnswer={showAnswer}
       />
       
       {Number(calculation) !== answer && showAnswer != true && cardOptionsOpen != true &&

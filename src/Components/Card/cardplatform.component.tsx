@@ -1,9 +1,18 @@
+import { State } from "../../types.ts";
 import { Spinplatform } from "./card.styles.tsx";
 import Card from "./card.component.tsx";
 // import { CardBack } from "./card.styles";
 import Back from "./cardback.component.tsx";
 
-export const Spinner = (props) => {
+type SpinnerProps = {
+    state:State;
+    // setState: () => void;
+    setState: React.Dispatch<React.SetStateAction<State>>;
+    mathGenerator: () => void;
+    getRandomArbitrary: (length:number) => void;
+};
+
+export const Spinner = (props: SpinnerProps) => {
     const {
         state,
         setState,
@@ -15,8 +24,8 @@ export const Spinner = (props) => {
     return(
         <Spinplatform
             showAnswer={showAnswer}
-            answer={answer}
-            calculation={Number(calculation)}
+            // answer={answer}
+            // calculation={Number(calculation)}
             solved={Number(calculation) === answer}
         >
             <Card
