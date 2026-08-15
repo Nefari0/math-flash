@@ -32,9 +32,44 @@ const App = () => {
     mathGenerator();
   },[]);
 
-  function getRandomArbitrary(
-    length: number,
-  ) {return Math.floor(Math.random() * (10 ** length - 1) + 1);}
+  function getRandomArbitrary(length: number): number {
+    return Math.floor(
+      Math.random() * (9 * 10 ** (length - 1))
+    ) + 10 ** (length - 1);
+  }
+
+  function generateDivision(
+    dividendDigits: number,
+    divisorDigits: number
+  ) {
+    const effectiveDividendDigits =
+      Math.max(dividendDigits, divisorDigits);
+
+    const maxDividend = 10 ** effectiveDividendDigits - 1;
+    const minDividend = 10 ** (effectiveDividendDigits - 1);
+
+    const divisor = getRandomArbitrary(divisorDigits);
+
+    const minQuotient = Math.max(
+      1,
+      Math.ceil(minDividend / divisor)
+    );
+
+    const maxQuotient = Math.floor(maxDividend / divisor);
+
+    const quotient =
+      Math.floor(
+        Math.random() * (maxQuotient - minQuotient + 1)
+      ) + minQuotient;
+
+    const dividend = quotient * divisor;
+
+    return {
+      firstNumber: dividend,
+      secondNumber: divisor,
+      answer: quotient
+    };
+  }
 
   function mathGenerator() {
     let first = getRandomArbitrary(lengthOfFirstNumber);
@@ -49,8 +84,16 @@ const App = () => {
       case "\\times": result = first * second
       break;
       case "\\div": {
-        result = first
-        first = first * second
+        const division = generateDivision(
+          lengthOfFirstNumber,
+          lengthOfSecondNumber
+        );
+
+        first = division.firstNumber;
+        second = division.secondNumber;
+        result = division.answer;
+
+      break;  
       }
     }
 
