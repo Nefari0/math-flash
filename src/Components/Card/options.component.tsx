@@ -1,9 +1,24 @@
 import 'katex/dist/katex.min.css';
-import { OptionsContainer,OptionColumn } from "./card.styles";
+import { OptionsContainer,OptionColumn } from "./card.styles.tsx";
 import { InlineMath } from "react-katex";
-import Button from '../Buttons/basebutton.component';
+import Button from '../Buttons/basebutton.component.tsx';
 
-const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }) => {
+type CardState = {
+  mode: string;
+  lengthOfFirstNumber: number;
+  lengthOfSecondNumber: number;
+  firstNumber?: number;
+  secondNumber?: number;
+};
+
+type CardOptionsProps = {
+  state: CardState;
+  setState: React.Dispatch<React.SetStateAction<CardState>>;
+  getRandomArbitrary: (length: number) => number;
+  mathGenerator: () => void;
+};
+
+const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }: CardOptionsProps) => {
 
     const { mode, lengthOfFirstNumber, lengthOfSecondNumber } = state
 
@@ -12,12 +27,34 @@ const CardOptions = ({state,setState,getRandomArbitrary,mathGenerator }) => {
     const numberArray = [1,2,3]
     const operationArray = [ "+", "-", "\\times", "\\div"]
 
-    function inputHandler(prop,val,resetVal) {
-        setState({
-            ...state,
-            [prop]:val,
-            [resetVal]:getRandomArbitrary(val)
-        })
+    function inputHandler(
+        prop: "mode",
+        val: string
+    ): void;
+
+    function inputHandler(
+        prop: "lengthOfFirstNumber" | "lengthOfSecondNumber",
+        val: number,
+        resetVal: "firstNumber" | "secondNumber"
+    ): void;
+
+    function inputHandler(
+        prop: keyof CardState,
+        val: string | number,
+        resetVal?: keyof CardState
+    ) {
+        if (resetVal) {
+            setState({
+                ...state,
+                [prop]: val,
+                [resetVal]: getRandomArbitrary(Number(val))
+            });
+        } else {
+            setState({
+                ...state,
+                [prop]: val
+            });
+        }
     }
 
     return (
