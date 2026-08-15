@@ -1,27 +1,45 @@
 # Math Flash
 
-https://cardz.madmodels3d.com/
+[https://cardz.madmodels3d.com/](https://cardz.madmodels3d.com/)
 
-A simple flashcard game for memorizing and practicing basic arithmetic operations.
+A simple flashcard app for practicing mental arithmetic.
 
-The default operation is 1-by-1 addition, but the app supports up to three digits per side of the operation. The number of digits and type of operation can be changed in the settings panel, accessed via the "wrench" button on the keypad.
+Math Flash generates random addition, subtraction, multiplication, and division problems. Each side of an operation can be configured independently from one to three digits, allowing anything from simple problems for beginners to more challenging three-digit calculations.
 
-### Why
+## Features
 
-This app was inspired by a personal struggle to retain multiplication tables in memory for long periods, and the process of teaching my two young children numbers and arithmetic.
+- Addition, subtraction, multiplication, and division
+- 1–3 digits on each side of an operation
+- Independently configure each operand
+- Randomly generated problems
+- Immediate answer checking
+- Designed for both children and adults
+- Responsive interface for desktop and mobile
 
-### Technology
+## Why I Built It
 
-* Reactjs
-* Katex
+I built Math Flash so I could practice mental arithmetic myself and so my children, who are just beginning to learn arithmetic, could practice as well.
 
-### Development
+I wanted something simple that could be used for quick, repeated practice without the distractions of a traditional calculator. The adjustable difficulty allows the same app to be useful for someone learning basic addition as well as someone practicing more advanced mental calculations.
 
-#### Prototyping
-* 1 working hour(s)
+## Technology
 
-#### Development
-* 12 working hour(s)
+- React
+- TypeScript
+- KaTeX
+- CSS
+- Git / GitHub
 
-#### Debugging
-* 1 working hour(s)
+## Development
+
+The project began as a small React prototype and was later converted to TypeScript.
+
+| Phase | Time |
+|---|---:|
+| Prototyping | 1 hour |
+| Development | 12 hours |
+| Debugging | 1 hour |
+
+## Live Demo
+
+[https://cardz.madmodels3d.com/](https://cardz.madmodels3d.com/)
